@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: devopsapp
+  namespace: devops
+  labels:
+    app: devopsapp
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: devopsapp
+  template:
+    metadata:
+      labels:
+        app: devopsapp
+    spec:
+      containers:
+      - name: devopsapp
+        image: serhat191/devopsapp:v1
+        ports:
+        - containerPort: 4000
+        
